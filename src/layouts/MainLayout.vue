@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div v-if="!loading">
         <AppBar/>
-        <v-main v-if="!loading">
+        <v-main >
             <router-view v-slot="{ Component }">
                 <keep-alive>
                     <component :is="Component" />

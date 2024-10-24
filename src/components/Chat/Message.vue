@@ -19,10 +19,7 @@ export default {
     },
     computed:{
       formatDate(){
-        var newDate = new Date(this.date)
-        var timeZoneHour = newDate.getTimezoneOffset() / 60;
-        newDate.setTime(newDate.getTime() + (timeZoneHour*60 * 60 * 1000))
-        return format(newDate, "yyyy-MM-dd hh:mm:ss")
+        return format(this.date, "yyyy-MM-dd HH:mm:ss")
       }
     },
 }
