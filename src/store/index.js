@@ -24,9 +24,14 @@ export default createStore({
           body: body ? JSON.stringify(body) : null,
           
         } );
+        if (r.status == 500) {
+          throw new Error("Ошибка соединения с сервером")
+        }
         let data = await r.json()
+        
         if (r.ok) return data 
         else {
+          console.log(r)
           if (data.error_class == "Unauthorized") {
             await ctx.commit('setToken', null)
             localStorage.clear()
@@ -37,6 +42,7 @@ export default createStore({
         }
       }
       catch (error){
+        console.log(error)
         throw new Error(error.message)
       }
     },
