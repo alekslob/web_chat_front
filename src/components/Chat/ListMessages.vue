@@ -53,13 +53,23 @@ export default {
       })
     },
     methods:{
-      ...mapActions(["getAllMessages"])
+      ...mapActions(["getAllMessages"]),
+      async updateMessages(){
+        try {
+        await this.getAllMessages();
+        // После получения всех сообщений, обновите ваш интерфейс 
+      } catch (error) {
+        console.error('Ошибка при получении сообщений:', error);
+        // Обработайте ошибку, например, выведите сообщение пользователю
+      }
+      }
     },
     components:{
       MessageVue
     },
     async mounted(){
-      await this.getAllMessages()
+      await this.getAllMessages();
+      setInterval(this.updateMessages, 2000);
     }
   };
   </script>
