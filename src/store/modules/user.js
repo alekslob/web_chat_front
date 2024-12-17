@@ -18,7 +18,11 @@ export default{
 
     actions:{
         async getUserInfo(ctx) {
-            let r = await ctx.dispatch('provideRequest', ({endpoint: '/info/user/', method: "GET"}))
+            let r = {
+                id: 0,
+                username: 'Test User'
+            }
+            // let r = await ctx.dispatch('provideRequest', ({endpoint: '/info/user/', method: "GET"}))
             if (r) { 
                 ctx.commit('setUser', r) 
             }

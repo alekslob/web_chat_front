@@ -15,13 +15,15 @@ export default{
 
     actions:{
         async getAllMessages(ctx) {
-            let r = await ctx.dispatch('provideRequest', ({endpoint: '/messages/', method: 'GET'}))
+            // let r = await ctx.dispatch('provideRequest', ({endpoint: '/messages/', method: 'GET'}))
+            let r = []
             if (r) { 
                 ctx.commit('setMessages', r) 
             }
         },
         async sendMessage(ctx, data) {
-            await ctx.dispatch('provideRequest', ({endpoint: '/messages/', body: data}))
+            data
+            // await ctx.dispatch('provideRequest', ({endpoint: '/messages/', body: data}))
             
         },
     },

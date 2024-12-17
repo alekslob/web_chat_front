@@ -14,27 +14,39 @@ export default{
         },
     },
     actions:{
-        async auth(ctx, data) {
-            let r = await ctx.dispatch('provideRequest', ({endpoint: '/auth/', body: data}))
+        async auth(ctx) {
+            let r = {
+                refresh_token: 'test',
+                token: 'test'
+            }
+            // let r = await ctx.dispatch('provideRequest', ({endpoint: '/auth/', body: data}))
             if (r) { 
                 localStorage.refresh_token = r.refresh_token
                 ctx.commit('setToken', r.token) 
             }
             return r
           },
-        async login(ctx, data) {
-            let r = await ctx.dispatch('provideRequest', ({endpoint: '/login/', body: data}))
+        async login(ctx) {
+            let r = {
+                refresh_token: 'test',
+                token: 'test'
+            }
+            // let r = await ctx.dispatch('provideRequest', ({endpoint: '/login/', body: data}))
             if (r) { 
                 localStorage.refresh_token = r.refresh_token
                 ctx.commit('setToken', r.token) 
             }
             return r
         },
-        async refresh(ctx, data) {
+        async refresh(ctx) {
             try{
                 var refresh_token = localStorage.refresh_token || null
                 ctx.commit('setToken', refresh_token) 
-                let r = await ctx.dispatch('provideRequest', ({endpoint: '/refresh/', body: data, method: "POST"}))
+                let r = {
+                    refresh_token: 'test',
+                    token: 'test'
+                }
+                // let r = await ctx.dispatch('provideRequest', ({endpoint: '/refresh/', body: data, method: "POST"}))
                 if (r) { 
                     localStorage.refresh_token = r.refresh_token
                     ctx.commit('setToken', r.token) 
