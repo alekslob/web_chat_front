@@ -22,7 +22,7 @@ export default {
         ]),
     },
     async mounted(){
-        console.log(this.contacts)
+        //console.log(this.contacts)
     }
 }
 </script>

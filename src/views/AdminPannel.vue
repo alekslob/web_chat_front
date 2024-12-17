@@ -8,7 +8,7 @@
     >
       <v-tab value="pannelContacts">Контакты</v-tab>
       <v-tab value="pannelUsers">Пользователи</v-tab>
-      <v-tab value="pannelInstructions" disabled="true">Инструкции</v-tab>
+      <v-tab value="pannelInstructions">Инструкции</v-tab>
     </v-tabs>
     <v-tabs-window v-model="tab">
         <v-tabs-window-item value="pannelContacts">
